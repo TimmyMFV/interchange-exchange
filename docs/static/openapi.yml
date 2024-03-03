@@ -19636,6 +19636,102 @@ paths:
           type: string
       tags:
         - Query
+  /interchange.dex.Msg/CancelBuyOrder:
+    post:
+      operationId: InterchangeDexMsg_CancelBuyOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+              port:
+                type: string
+              channel:
+                type: string
+              amountDenom:
+                type: string
+              priceDenom:
+                type: string
+              orderId:
+                type: integer
+                format: int32
+      tags:
+        - Msg
+  /interchange.dex.Msg/CancelSellOrder:
+    post:
+      operationId: InterchangeDexMsg_CancelSellOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+              port:
+                type: string
+              channel:
+                type: string
+              amountDenom:
+                type: string
+              priceDenom:
+                type: string
+              orderId:
+                type: integer
+                format: int32
+      tags:
+        - Msg
   /interchange.dex.Msg/SendBuyOrder:
     post:
       operationId: InterchangeDexMsg_SendBuyOrder
@@ -27794,6 +27890,42 @@ definitions:
         type: string
       priceDenom:
         type: string
+  interchange.dex.MsgCancelBuyOrder:
+    type: object
+    properties:
+      creator:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+      orderId:
+        type: integer
+        format: int32
+  interchange.dex.MsgCancelBuyOrderResponse:
+    type: object
+  interchange.dex.MsgCancelSellOrder:
+    type: object
+    properties:
+      creator:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+      orderId:
+        type: integer
+        format: int32
+  interchange.dex.MsgCancelSellOrderResponse:
+    type: object
   interchange.dex.MsgSendBuyOrder:
     type: object
     properties:
